@@ -1,0 +1,15 @@
+runtime: python310
+service: default
+entrypoint: streamlit run main.py --server.port $PORT --server.enableCORS false
+
+env_variables:
+  GCP_PROJECT_ID: the-method-447618-k6
+  GCP_BUCKET_NAME: investbucket
+  VERTEX_AI_LOCATION: us-central1
+  GOOGLE_APPLICATION_CREDENTIALS: the-method-447618-k6-5dc49a23a338.json
+  service_account: due-dill@the-method-447618-k6.iam.gserviceaccount.com
+
+handlers:
+- url: /.*
+  secure: always
+  script: auto
